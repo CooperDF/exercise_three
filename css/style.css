@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+@keyframes bluesky {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -1600px 0;
+    }
+}
+
+@keyframes rolling-hills {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -100vw 0;
+    }
+}
+
+@keyframes rock {
+    0% {
+        transform: rotate(1grad)
+    }
+    
+    25% {
+        transform: rotate(-1grad)
+    }
+    50% {
+        transform: rotate(1grad)
+    }
+    75% {
+        transform: rotate(-1grad)
+    }
+    100% {
+        transform: rotate(1grad)
+    }
+}
+@keyframes speed {
+    0% {
+        transform: translate3d(0)
+    }
+    
+    25% {
+        transform: translate3d(100px, 15px, 25px)
+    }
+    
+    50% {
+        transform: translate3d(250px, 50px, 100px)
+    }
+    
+    75% {
+        transform: translate3d(75px, 35px, 65px)
+    }
+    
+    100% {
+         transform: translate3d(0)
+    }
+}
+
+@keyframes blur {
+    0% {
+        transform: translate3d(0)
+    }
+    
+    50% {
+        transform: translate3d(-2px, 2px, -2px)
+}
+    
+    100% {
+        transform: translate3d(0)
+    }
+}
+
+html, body {
+    margin: 0;
+    overflow: hidden;
+    min-height: 100%;
+    background-image: url(../images/sky_background.svg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: repeat-x;
+    animation: bluesky 105s linear infinite;
+    filter: custom(sepia(0.5), contrast(0.5), saturate(1));
+}
+
+.hills {
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/hills.svg);
+    background-repeat: repeat-x;
+    background-position: center;
+    animation: rolling-hills 25s linear infinite;
+    position: absolute;
+    top: 40vh;
+}
+
+.vehicle {
+    z-index: 1;
+    position: relative;
+}
+
+.chasis {
+    transform-origin: center;
+    animation-name: rock;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.car {
+    filter: drop-shadow(20px 100px 10px #4444dd);
+    animation: speed 20s ease-in-out infinite;
+}
+
+.blur {
+    animation: blur 0.5s linear infinite;
+}
